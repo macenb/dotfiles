@@ -173,10 +173,17 @@ alias dockershellsh="docker run --rm -i -t --entrypoint=/bin/sh"
 
 function dockershellhere() {
     dirname=${PWD##_/}
-    docker run --rm -it --entrypoint=/bin/bash -v `pwd`:/${dirname} -w /${dirname} "$@"
+    docker run --rm -it --entrypoint=/bin/sh -v `pwd`:/${dirname} -w /${dirname} "$@"
 }
 
 function dockershellshhere() {
     dirname=${PWD##_/}
     docker run --rm -it --entrypoint=/bin/sh -v `pwd`:/${dirname} -w /${dirname} "$@"
 }
+
+function sage() {
+    dirname=${PWD##_/}
+    docker run --rm -it --entrypoint=/bin/sh -v `pwd`:/${dirname} -w /${dirname} sagemath/sagemath
+}
+
+export down='/mnt/c/Users/macen/Downloads'
