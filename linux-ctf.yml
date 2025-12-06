@@ -5,12 +5,14 @@ channels:
   - pytorch
 dependencies:
   - python=3.12
+  - attrs
   - capstone
   - cffi
   - cryptography
   - ffmpeg
   - geoip2
   - glib
+  - jsonschema-specifications
   - libarchive
   - libcurl
   - libffi
@@ -25,15 +27,19 @@ dependencies:
   - pillow
   - pip
   - plotly
+  - psutil
   - pycryptodome
   - pyelftools
   - pyzbar
+  - referencing
   - requests
+  - rpds-py
   - ruff
   - sage
   - scapy
   - seaborn
   - setuptools
+  - six
   - sqlite
   - swig
   - tensorboard
@@ -67,6 +73,7 @@ dependencies:
       - ROPgadget
       - ropper
       - scapy-http
+      - semgrep
       - stegano
       - stegcracker
       - streamlit
@@ -74,7 +81,5 @@ dependencies:
       - streamlit-echarts
       - streamlit-option-menu
       - z3-solver
-      - fpylll
-      - numba
 
 # adapted from Appalachian: https://github.com/AppalachianMounta1n/Conda-Environment-Files/blob/main/CTF/linux-ctf.yml
