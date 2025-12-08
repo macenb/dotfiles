@@ -30,6 +30,7 @@ dependencies:
   - psutil
   - pycryptodome
   - pyelftools
+  - python-dateutils
   - pyzbar
   - referencing
   - requests
