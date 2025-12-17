@@ -28,12 +28,17 @@ dnf check-update && sudo dnf install -y code
 echo "Adding user to groups and enabling services..."
 sudo systemctl enable --now docker
 sudo usermod -aG dialout macen
+sudo usermod -aG plugdev macen
 sudo usermod -aG wireshark macen
 sudo usermod -aG docker macen
 
 # rust
 echo "Installing rust..."
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -q -y
+
+# uv / uvx
+echo "Installing uv..."
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # conda
 echo "Installing conda..."
