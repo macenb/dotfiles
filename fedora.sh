@@ -38,7 +38,7 @@ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -q -y
 # conda
 echo "Installing conda..."
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh -b
 
 # make sure you install it to ~/miniconda3
 echo "Setting up the conda environment..."
