@@ -5,19 +5,24 @@ INSTALL_DIR=$(pwd)
 sudo dnf update -y
 
 sudo dnf group install development-tools -y
-sudo dnf install -y git code akmod-nvidia \
+sudo dnf install -y git akmod-nvidia \
     xorg-x11-drv-nvidia-cuda vim gdb gdb-gdbserver \
     python-devel python3-devel make binutils-devel \
     java-21-openjdk java-21-openjdk-devel gcc-c++ \
     strongswan libusb1 libusb1-devel binwalk \
     dnf-plugins-core golang sshpass gimp zsh \
     bat 
-sudo dnf install -y brave-browser
+# sudo dnf install -y brave-browser
 sudo dnf install -y upx radare2 wireshark nmap \
     strace ltrace hashcat yara
 sudo dnf remove -y @kde-pim
 sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# install vscode : https://code.visualstudio.com/docs/setup/linux#_install-vs-code-on-linux
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+dnf check-update && sudo dnf install -y code
 
 # group adds and whatnot
 echo "Adding user to groups and enabling services..."
