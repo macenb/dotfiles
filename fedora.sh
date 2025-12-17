@@ -42,6 +42,7 @@ bash Miniconda3-latest-Linux-x86_64.sh -b
 
 # make sure you install it to ~/miniconda3
 echo "Setting up the conda environment..."
+export CONDA_PLUGINS_AUTO_ACCEPT_TOS=yes
 $HOME/miniconda3/bin/conda env create --name ctf --file linux-ctf.yml
 
 # flatpak
