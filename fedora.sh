@@ -11,7 +11,7 @@ sudo dnf install -y git akmod-nvidia \
     java-21-openjdk java-21-openjdk-devel gcc-c++ \
     strongswan libusb1 libusb1-devel binwalk \
     dnf-plugins-core golang sshpass gimp zsh \
-    bat 
+    bat ncurses-devel
 # sudo dnf install -y brave-browser
 sudo dnf install -y upx radare2 wireshark nmap \
     strace ltrace hashcat yara
@@ -33,7 +33,7 @@ sudo usermod -aG docker macen
 
 # rust
 echo "Installing rust..."
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -q -y
 
 # conda
 echo "Installing conda..."
@@ -86,12 +86,13 @@ git clone https://github.com/danielmiessler/SecLists.git "$HOME/tools/SecLists"
 git clone https://github.com/volatilityfoundation/volatility3.git "$HOME/tools/volatility3"
 git clone https://github.com/extremecoders-re/pyinstxtractor.git "$HOME/tools/pyinstxtractor"
 
-echo "Installing Android Studio..."
-cd ~/Downloads
-wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2025.2.1.7/android-studio-2025.2.1.7-linux.tar.gz
-tar -xvf android-studio-2025.2.1.7-linux.tar.gz
-cd android-studio/bin
-./studio.sh
+# this works, but takes sooooo long. just do it manually later
+# echo "Installing Android Studio..."
+# cd ~/Downloads
+# wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2025.2.1.7/android-studio-2025.2.1.7-linux.tar.gz
+# tar -xvf android-studio-2025.2.1.7-linux.tar.gz
+# cd android-studio/bin
+# ./studio.sh
 
 # pwndbg
 echo "Setting up GDB plugins..."
@@ -107,7 +108,7 @@ bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
 cp $INSTALL_DIR/.gdbinit $HOME/.gdbinit
 cp $INSTALL_DIR/pwntemplate.py $HOME/tools/pwntemplate.py
 
-cargo install pwninit
+$HOME/.cargo/bin/cargo install pwninit
 
 # now do the pretties
 cd ~/Downloads
