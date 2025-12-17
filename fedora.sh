@@ -42,7 +42,7 @@ bash Miniconda3-latest-Linux-x86_64.sh
 
 # make sure you install it to ~/miniconda3
 echo "Setting up the conda environment..."
-$HOME/miniconda3/bin/conda create --name ctf -f linux-ctf.yml
+$HOME/miniconda3/bin/conda env create --name ctf -f linux-ctf.yml
 
 # flatpak
 echo "Installing flatpak apps..."
