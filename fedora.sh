@@ -92,6 +92,11 @@ git clone https://github.com/danielmiessler/SecLists.git "$HOME/tools/SecLists"
 git clone https://github.com/volatilityfoundation/volatility3.git "$HOME/tools/volatility3"
 git clone https://github.com/extremecoders-re/pyinstxtractor.git "$HOME/tools/pyinstxtractor"
 
+git clone https://github.com/wting/autojump.git
+cd autojump
+./install.py
+cd ..
+
 # this works, but takes sooooo long. just do it manually later
 # echo "Installing Android Studio..."
 # cd ~/Downloads
