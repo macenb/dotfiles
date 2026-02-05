@@ -5,6 +5,7 @@ INSTALL_DIR=$(pwd)
 sudo dnf update -y
 
 sudo dnf group install development-tools -y
+sudo dnf install @virtualization
 sudo dnf install -y git akmod-nvidia \
     xorg-x11-drv-nvidia-cuda vim gdb gdb-gdbserver \
     python-devel python3-devel make binutils-devel \
@@ -27,9 +28,13 @@ dnf check-update && sudo dnf install -y code
 # group adds and whatnot
 echo "Adding user to groups and enabling services..."
 sudo systemctl enable --now docker
+sudo groupadd -f dialout
 sudo usermod -aG dialout macen
+sudo groupadd -f plugdev
 sudo usermod -aG plugdev macen
+sudo groupadd -f wireshark
 sudo usermod -aG wireshark macen
+sudo groupadd -f docker
 sudo usermod -aG docker macen
 
 # rust
